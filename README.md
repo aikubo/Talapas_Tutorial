@@ -202,6 +202,13 @@ We can check the output of the code using
 
 There you go a new desktop background! 
 
+## Canceling a run 
+
+TO cancel a run first check the jobid using `squeue -u USER`
+
+It will print a job id that is 9 digits. You can then cancel a run using `scancel JOBID`
+
+
 
 ## How much faster?
 
@@ -210,6 +217,7 @@ We are going to each act  "in parallel" and check the speed up in this program.
 ![image](assignment.png)
 
 Report the time it took to run to Allison and we will put together a speed up graph!
+
 
 ## Matlab example
 
