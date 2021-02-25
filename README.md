@@ -151,6 +151,8 @@ We will run it using `sbatch`.
 
 Using sbatch we will need to specify the number of cores, number of nodes, the account, the reservation the same as `srun` but instead of putting it in one command we put it in the batch script which is a bash script file. 
 
+Open the file `mandel.batch` using nano.
+
 It is formatted like 
 
 ```
