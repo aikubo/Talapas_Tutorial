@@ -154,7 +154,7 @@ Using sbatch we will need to specify the number of cores, number of nodes, the a
 It is formatted like 
 
 ```
-!/bin/bash
+#!/bin/bash
 
 #SBATCH --partition=short     ### Partition/queue name specific to our group
 #SBATCH --job-name=mandelbrot  ### Job Name -- can make this specific to your program
