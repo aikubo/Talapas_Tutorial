@@ -45,7 +45,7 @@ Let's make a new directory for this tutorial.
 
 We are currently in a HEAD node. Nodes are individual servers in the cluster. We do not want to do any large computations in the head node which will clog the system for anyone else logging in.  
 
-We will initiate an interactive session, interactive sessions are allow you to work on compute nodes. Using an interactive session is necessary for task that take longer than  per  Talapas guidlines. For example: 
+We will initiate an interactive session, interactive sessions are allow you to work on compute nodes. Using an interactive session is necessary for task that take longer than 2 s per  Talapas guidlines. For example: 
 
 - compiling code 
 - opening matlab
