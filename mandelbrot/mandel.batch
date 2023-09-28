@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --partition=short      ### Partition/queue name specific to our group
+#SBATCH --partition=karlstrom      ### Partition/queue name specific to our group
 #SBATCH --job-name=mandelbrot  ### Job Name / this specific to your program
 #SBATCH --output=mandel.out    ### file in which to store job output
 #SBATCH --error=error.err      ### file in which to store job error messages
@@ -8,8 +8,7 @@
 #SBATCH --nodes=1              ### Number of Nodes
 #SBATCH --ntasks-per-node=1    ### Number of Tasks
 #SBATCH --cpus-per-task=5      ### How many cpus within the node will be used
-#SBATCH --account=wihpc        ### Account for the code to run under
-#SBATCH --reservation=wihpc    ### Reservation for tutorial
+#SBATCH --account=karlstrom        ### Account for the code to run under
 
 
 module load intel/17

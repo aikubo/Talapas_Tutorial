@@ -54,15 +54,11 @@ We will initiate an interactive session, interactive sessions allow you to work 
 However, things like `ls` looking at directories etc do not require a compute node. 
 
 The command we will use to launch any session on a compute node is `srun` a specific SLURM command. 
-The command we will use for the WiHPC tutorial is 
+The command we will use for the tutorial is 
 
-`srun --account=wihpc --x11 --partition=short --reservation=wihpc --pty bash`
+`srun --account=karlstrom --x11 --partition=karlstrom --pty bash`
 
-If you are trying this on your own, the reservation will not be active so just use the command 
-
-`srun --account=wihpc -x11 --partition=short --pty bash`
-
-The `-X11` will allow for forwarding of any windows you open.
+The `--X11` will allow for forwarding of any windows you open.
 
 It will ssh you into a compute node. Note that the prompt will change from `user@talapas-ln1 $` to `user@n049` where n049 means you are on node 49. 
 
@@ -79,7 +75,7 @@ will show the jobs you are running and you will see the interactive session you 
 
 ```
  JOBID PARTITION     NAME     USER   ST       TIME  NODES NODELIST(REASON)
-14198989     short     bash    ducky  R       2:37      1 n049
+14198989     karlstrom     bash    ducky  R       2:37      1 n049
 ```
 
 We can also check the other people running on the *short* paritition by using the command 
@@ -88,31 +84,31 @@ We can also check the other people running on the *short* paritition by using th
 
 The option `-p` is for partition. If you are running this during the tutorial you should see the tutorial participents running here. 
 
-First off, let's make a new directory for this tutorial. We care going to copy the code from the `/projects/wihpc/shared` directory. All the PIRGs have a folder in the `/projects` directory. You will also have a folder under `/projects/wihpc/user`. If my user name was ducky, my directory would be `/projects/wihpc/ducky`. 
+First off, let's make a new directory for this tutorial. We care going to copy the code from the `/projects/karlstrom/shared` directory. All the PIRGs have a folder in the `/projects` directory. You will also have a folder under `/projects/karlstrom/user`. If my user name was ducky, my directory would be `/projects/karlstrom/ducky`. 
 
 Your `/projects` directory has more alloted storage than the home directory so in the future if you work on Talapas it is generally best to work from this directory. 
 
 Let's change into that directory. 
 
-`cd /projects/wihpc/ducky`
+`cd /projects/karlstrom/ducky`
 But please sub in your own user name.
 
-Then we are going to copy the directory `/projects/wihpc/shared/feb_tutorial`
+Then we are going to copy the directory `/projects/karlstrom/shared/Talapas_Tutorial`
 into our own folder. 
 
-`cp -R /projects/wihpc/shared/feb_tutorial  ./`
+`cp -R /projects/karlstrom/shared/Talapas_Tutorial  ./`
 
 This command recursively copies the feb_tutorial folder into your own folder. 
 
 
-`cd feb_tutorial`
+`cd Talapas_Tutorial`
 
 ## Using srun 
 Open up the file `testNodes.sh` using `nano`. What does it do? 
 
 Try running it using srun. srun is a command to run parallel jobs. 
 
-`srun --account=wihpc --partition=short --reservation=wihpc -N2 testNodes.sh`
+`srun --account=karlstrom --partition=karlstrom -N2 testNodes.sh`
 
 Like we did before, we have to state the account, partition, and reservation. But before we started a bash instance and here we will run the testNodes.sh file. Another difference is that we specified the number of nodes using `-N2` meaning we want 2 nodes. 
 
@@ -122,7 +118,7 @@ Congrats on running something for the first time on super computer cluster!!
 
 ## Mandelbrot set 
 
-Change directory into `/feb_tutorial/mandelbrot`.
+Change directory into `/Talapas_Tutorial/mandelbrot`.
 
 This contains code to calculate the [Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set). Wikipedia says that the set is 
 
@@ -158,7 +154,7 @@ It is formatted like
 ```
 #!/bin/bash
 
-#SBATCH --partition=short     ### Partition/queue name specific to our group
+#SBATCH --partition=karlstrom     ### Partition/queue name specific to our group
 #SBATCH --job-name=mandelbrot  ### Job Name -- can make this specific to your program
 #SBATCH --output=mandel.out   ### file in which to store job stdout, edit for a your case
 #SBATCH --error=error.err    ### file in which to store job stderr, edit for your case
@@ -166,8 +162,8 @@ It is formatted like
 #SBATCH --nodes=1           ### Number of Nodes
 #SBATCH --ntasks-per-node=1         ### Number of Tasks
 #SBATCH --cpus-per-task=5
-#SBATCH --account=wihpc 
-#SBATCH --reservation=wihpc   ### Reservation for tutorial
+#SBATCH --account=karlstrom
+
 
 
 module load intel/17
